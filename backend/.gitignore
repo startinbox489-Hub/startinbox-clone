@@ -1,0 +1,11 @@
+.env
+
+.venv
+
+*.pyc
+
+logs
+
+startup_reports/
+
+__pycache__/*.pyc
