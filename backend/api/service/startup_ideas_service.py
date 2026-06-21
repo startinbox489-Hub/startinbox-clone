@@ -47,7 +47,6 @@ from api.service.twilio_meta_service import twilio_meta_service
 from api.utils.send_files_to_mail import send_report_files_via_mail
 from api.model.model_enums import SubscriptionPlanTypeEnum
 
-
 logger = create_logger(":: StartupIdeasService ::")
 
 
@@ -415,17 +414,19 @@ class StartupIdeasService:
         """
         Trims Validation
         """
-        if len(validation) > 150:
-            return f"{validation[:100]}..."
-        if len(validation) > 100:
-            return f"{validation[:50]}..."
-        if len(validation) > 80:
-            return f"{validation[:40]}..."
-        if len(validation) > 60:
-            return f"{validation[:30]}..."
-        if len(validation) > 40:
-            return f"{validation[:20]}..."
-        return f"{validation[:10]}..."
+        # TODO: Uncomment when needed
+        # if len(validation) > 150:
+        #     return f"{validation[:100]}..."
+        # if len(validation) > 100:
+        #     return f"{validation[:50]}..."
+        # if len(validation) > 80:
+        #     return f"{validation[:40]}..."
+        # if len(validation) > 60:
+        #     return f"{validation[:30]}..."
+        # if len(validation) > 40:
+        #     return f"{validation[:20]}..."
+        # return f"{validation[:10]}..."
+        return validation
 
     async def fetch_all_startup_ideas(
         self,
