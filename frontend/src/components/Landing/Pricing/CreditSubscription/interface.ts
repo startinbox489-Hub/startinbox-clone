@@ -1,3 +1,3 @@
-import { IPricingProps } from '../interface';
+import { IPricingProps } from "../interface";
 
-export type ICreditsubscriptionProps = Pick<IPricingProps, 'plans'>;
+export type ICreditsubscriptionProps = Pick<IPricingProps, "plans">;

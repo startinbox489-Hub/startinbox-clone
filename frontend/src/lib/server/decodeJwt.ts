@@ -1,6 +1,6 @@
-'use server';
+"use server";
 
-import { decodeJwt } from 'jose';
+import { decodeJwt } from "jose";
 
 /**
  * Get JWT header without verification
@@ -8,9 +8,9 @@ import { decodeJwt } from 'jose';
  * @returns {Object} - The decoded header
  */
 export async function getJWTHeader(token: string) {
-	try {
-		return decodeJwt(token);
-	} catch (error) {
-		throw new Error(`Failed to decode header: ${(error as Error).message}`);
-	}
+  try {
+    return decodeJwt(token);
+  } catch (error) {
+    throw new Error(`Failed to decode header: ${(error as Error).message}`);
+  }
 }

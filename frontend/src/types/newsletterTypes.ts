@@ -1,13 +1,13 @@
 export interface UnsubscribeFormProps {
-	initialHash: string;
+  initialHash: string;
 }
 
 export interface ConfirmationModalProps {
-	onConfirm: () => void;
-	onCancel: () => void;
-	isLoading: boolean;
+  onConfirm: () => void;
+  onCancel: () => void;
+  isLoading: boolean;
 }
 
 export interface LayoutProps {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }

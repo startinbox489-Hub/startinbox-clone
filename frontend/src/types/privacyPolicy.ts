@@ -1,5 +1,5 @@
 export interface PolicySectionProps {
-	heading: string;
-	paragraph?: string;
-	items?: string[];
+  heading: string;
+  paragraph?: string;
+  items?: string[];
 }

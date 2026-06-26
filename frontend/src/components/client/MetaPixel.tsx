@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import { hasMetaConsent } from '@/lib/client/hasMetaConsent';
-import Script from 'next/script';
+import { hasMetaConsent } from "@/lib/client/hasMetaConsent";
+import Script from "next/script";
 
-const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || '';
+const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || "";
 
 const TEST_EVENT_CODE =
-	process.env.NODE_ENV === 'development' ? 'TEST12345' : undefined;
+  process.env.NODE_ENV === "development" ? "TEST12345" : undefined;
 
 export default function MetaPixel() {
-	if (!hasMetaConsent()) return null; // consent respected
-	if (!META_PIXEL_ID) return null;
+  if (!hasMetaConsent()) return null; // consent respected
+  if (!META_PIXEL_ID) return null;
 
-	return (
-		<Script
-			id="meta-pixel"
-			strategy="afterInteractive"
-			dangerouslySetInnerHTML={{
-				__html: `
+  return (
+    <Script
+      id="meta-pixel"
+      strategy="afterInteractive"
+      dangerouslySetInnerHTML={{
+        __html: `
           !function(f,b,e,v,n,t,s)
           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
           n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -28,7 +28,7 @@ export default function MetaPixel() {
           'https://connect.facebook.net/en_US/fbevents.js');
           fbq('init', '${META_PIXEL_ID}', { 'test_event_code': '${TEST_EVENT_CODE}' });
         `,
-			}}
-		/>
-	);
+      }}
+    />
+  );
 }

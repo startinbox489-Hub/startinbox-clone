@@ -1,8 +1,8 @@
-import PrivacyPolicy from './PrivacyPolicyPage';
-export const dynamic = 'force-dynamic';
+import PrivacyPolicy from "./PrivacyPolicyPage";
+export const dynamic = "force-dynamic";
 
 const Privacy = () => {
-	return <PrivacyPolicy />;
+  return <PrivacyPolicy />;
 };
 
 export default Privacy;

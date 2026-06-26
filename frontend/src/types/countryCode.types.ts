@@ -1,14 +1,14 @@
 export interface CountryCodeI {
-	country: string;
-	code: string;
+  country: string;
+  code: string;
 }
 
 export interface CountryCodeProps {
-	value: string;
-	handleOnChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  value: string;
+  handleOnChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 export interface CustomDropdownProps {
-	value: string;
-	handleOnChange: (value: string) => void;
+  value: string;
+  handleOnChange: (value: string) => void;
 }

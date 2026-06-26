@@ -1,3 +1,3 @@
 export interface ICreditsFeatureData {
-	text: string;
+  text: string;
 }
