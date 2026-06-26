@@ -1,0 +1,54 @@
+name: Lint, Prettier, TypeCheck
+
+on:
+  push:
+    branches-ignore:
+      - develop
+      - staging
+      - main
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  lint-prettier-typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: List public files
+        run: ls -R public
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Prettier check
+        run: npm run prettier:check
+
+      - name: Run Prettier fix
+        run: npm run prettier:fix
+
+      - name: Run Tests
+        run: npm run test
+
+      - name: Run TypeScript type-check
+        run: npm run typecheck

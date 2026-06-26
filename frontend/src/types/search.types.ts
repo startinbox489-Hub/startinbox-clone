@@ -1,5 +1,5 @@
 export interface SearchPageProps {
-	searchParams: Promise<{
-		q: string;
-	}>;
+  searchParams: Promise<{
+    q: string;
+  }>;
 }

@@ -49,8 +49,8 @@ Example value:
 
 ```json
 {
-	"value": true,
-	"expiry": 1735689600000
+  "value": true,
+  "expiry": 1735689600000
 }
 ```
 

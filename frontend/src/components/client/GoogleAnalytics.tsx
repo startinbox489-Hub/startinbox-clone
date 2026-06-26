@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 export default function GoogleAnalytics() {
-	const pathname = usePathname();
+  const pathname = usePathname();
 
-	useEffect(() => {
-		const url = pathname + window.location.search;
+  useEffect(() => {
+    const url = pathname + window.location.search;
 
-		if ('gtag' in window) {
-			window.gtag('config', process.env.NEXT_PUBLIC_GA_ID!, {
-				page_path: url,
-			});
-		}
-	}, [pathname]);
+    if ("gtag" in window) {
+      window.gtag("config", process.env.NEXT_PUBLIC_GA_ID!, {
+        page_path: url,
+      });
+    }
+  }, [pathname]);
 
-	return null;
+  return null;
 }

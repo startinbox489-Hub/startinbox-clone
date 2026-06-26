@@ -1,9 +1,9 @@
 export interface IProjectDetails {
-	projectType: string;
-	projectStage: string;
-	desiredStartDate: string;
+  projectType: string;
+  projectStage: string;
+  desiredStartDate: string;
 }
 
 export interface ProjectDetailsFormProps {
-	ideaId: string;
+  ideaId: string;
 }

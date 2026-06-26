@@ -5,8 +5,14 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "prepare": "husky install",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "npx jest --detectOpenHandles --forceExit",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "prettier:fix": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\" \"!node_modules\" \"!.next\" \"!build\" \"!dist\"",
+    "prettier:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,css}\" \"!node_modules\" \"!.next\" \"!build\" \"!dist\""
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -15,6 +21,7 @@
     "class-validator": "^0.14.2",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.18",
+    "husky": "^9.1.7",
     "jose": "^6.1.0",
     "js-cookie": "^3.0.5",
     "lucide-react": "^0.544.0",
@@ -28,15 +35,39 @@
     "uuid": "^13.0.0",
     "zustand": "^5.0.8"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "overrides": {
+    "inflight": "npm:lru-cache@latest",
+    "glob": "^10.3.10"
+  },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/jest": "^30.0.0",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-next": "^0.0.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.2.0",
+    "prettier": "^3.8.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

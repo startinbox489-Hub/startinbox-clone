@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useAuthStore } from '@/store/authStore';
-import { UserModel } from '@/types/users.types';
-import { useEffect } from 'react';
+import { useAuthStore } from "@/store/authStore";
+import { UserModel } from "@/types/users.types";
+import { useEffect } from "react";
 
 export interface AuthProviderProps {
   user: UserModel | null;
